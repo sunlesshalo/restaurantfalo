@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #2A2926;
+  --color-charcoal-light: #3A3936;
+  --color-gold: #C9A962;
+  --color-gold-light: #D4BA7A;
+  --color-cream: #F5F2EB;
+  --color-cream-dark: #E8E4DA;
+
+  --font-family-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-family-serif);
+}
+
+/* Gold decorative line */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* Decorative ornament */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.ornament::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* Logo glow - only affects logo pixels via drop-shadow */
+.logo-glow {
+  filter: drop-shadow(0 0 20px rgba(201, 169, 98, 0.5));
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(201, 169, 98, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(201, 169, 98, 0.9));
+  }
+}
+
+/* Elegant headline styling */
+.hero-tagline {
+  font-family: var(--font-family-serif);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}

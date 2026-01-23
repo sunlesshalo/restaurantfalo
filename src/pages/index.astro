@@ -1,0 +1,515 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Faló Restaurant | Borsec">
+  <!-- Header with language toggle -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="text-gold font-serif text-xl tracking-wider">FALÓ</a>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-1 text-sm">
+        <button
+          data-lang-btn="ro"
+          onclick="setLang('ro')"
+          class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium"
+        >
+          RO
+        </button>
+        <button
+          data-lang-btn="hu"
+          onclick="setLang('hu')"
+          class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10"
+        >
+          HU
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-16">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img
+          src="/images/hero-food.webp"
+          alt="Traditional dishes at Faló Restaurant"
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <!-- Logo with glow effect -->
+        <div class="mb-8">
+          <img
+            src="/images/logo.webp"
+            alt="Faló Refined"
+            class="w-56 h-56 md:w-72 md:h-72 mx-auto logo-glow"
+            loading="eager"
+          />
+        </div>
+
+        <div class="gold-line max-w-sm mx-auto mb-8"></div>
+
+        <p
+          class="hero-tagline text-cream text-xl md:text-2xl leading-relaxed mb-10 max-w-xl mx-auto"
+          data-ro="Meniu tradițional din regiunea Harghita, într-o atmosferă relaxată perfectă pentru grupuri"
+          data-hu="Hagyományos hargitai konyha, kellemes, nyugodt, csoportok számára is tökéletes légkörben"
+        >
+          Meniu tradițional din regiunea Harghita,<br class="hidden sm:inline" />
+          într-o atmosferă relaxată perfectă pentru grupuri
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/menu.pdf"
+            target="_blank"
+            class="inline-flex items-center justify-center gap-2 bg-gold text-charcoal px-8 py-3 font-medium rounded hover:bg-gold-light transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span data-ro="Vezi meniul" data-hu="Menü megtekintése">Vezi meniul</span>
+          </a>
+          <a
+            href="tel:+40728905603"
+            class="inline-flex items-center justify-center gap-2 border border-gold text-gold px-8 py-3 font-medium rounded hover:bg-gold/10 transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span data-ro="Rezervări" data-hu="Foglalás">Rezervări</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Food Gallery Section -->
+    <section class="py-20 px-4 bg-charcoal">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-4xl text-center text-cream mb-4">
+          <span data-ro="Specialitățile casei" data-hu="A ház ajánlata">Specialitățile casei</span>
+        </h2>
+
+        <div class="ornament max-w-md mx-auto mb-12">
+          <span class="text-gold text-2xl">&#10022;</span>
+        </div>
+
+        <!-- Food Slider -->
+        <div class="relative" id="food-slider">
+          <!-- Slider Container -->
+          <div class="overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-out" id="slider-track">
+              <!-- Slide 1: Ciolan -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/ciolan.webp" alt="Ciolan cu fasole" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Ciolan cu fasole" data-hu="Csülök babbal">Ciolan cu fasole</p>
+                    <p class="text-gold/80 text-sm" data-ro="Piciorul de porc la cuptor cu fasole bătută" data-hu="Sült sertéscsülök törtbabbal">Piciorul de porc la cuptor cu fasole bătută</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 2: Gulyás -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/gulyas.webp" alt="Gulyás" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Gulyás" data-hu="Gulyás">Gulyás</p>
+                    <p class="text-gold/80 text-sm" data-ro="Tocană tradițională de vită" data-hu="Hagyományos marhapörkölt">Tocană tradițională de vită</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 3: Platou Faló -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/mititei.webp" alt="Platou Faló" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Platou Faló" data-hu="Faló tál">Platou Faló</p>
+                    <p class="text-gold/80 text-sm" data-ro="Mititei, cașcaval pane, cartofi" data-hu="Miccs, rántott sajt, krumpli">Mititei, cașcaval pane, cartofi</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 4: Babgulyás -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/babgulyas.webp" alt="Babgulyás" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Babgulyás" data-hu="Babgulyás">Babgulyás</p>
+                    <p class="text-gold/80 text-sm" data-ro="Tocană de fasole în stil unguresc" data-hu="Hagyományos babgulyás">Tocană de fasole în stil unguresc</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 5: Păstrăv -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/pastrav.webp" alt="Păstrăv" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Păstrăv cu mămăligă" data-hu="Pisztráng puliszkával">Păstrăv cu mămăligă</p>
+                    <p class="text-gold/80 text-sm" data-ro="Păstrăv la grătar cu mămăligă" data-hu="Grillezett pisztráng puliszkával">Păstrăv la grătar cu mămăligă</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 6: Papanași -->
+              <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                <div class="group relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src="/images/papanasi.webp" alt="Papanași" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-cream font-serif text-lg" data-ro="Papanași" data-hu="Túrófánk">Papanași</p>
+                    <p class="text-gold/80 text-sm" data-ro="Cu smântână și dulceață de afine" data-hu="Tejföllel és áfonyalekvárral">Cu smântână și dulceață de afine</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button id="slider-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-charcoal/80 hover:bg-gold text-gold hover:text-charcoal rounded-full flex items-center justify-center transition-colors z-10 backdrop-blur-sm border border-gold/30">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button id="slider-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-charcoal/80 hover:bg-gold text-gold hover:text-charcoal rounded-full flex items-center justify-center transition-colors z-10 backdrop-blur-sm border border-gold/30">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-6" id="slider-dots">
+            <button class="w-2 h-2 rounded-full bg-gold transition-all" data-slide="0"></button>
+            <button class="w-2 h-2 rounded-full bg-gold/30 hover:bg-gold/50 transition-all" data-slide="1"></button>
+            <button class="w-2 h-2 rounded-full bg-gold/30 hover:bg-gold/50 transition-all" data-slide="2"></button>
+            <button class="w-2 h-2 rounded-full bg-gold/30 hover:bg-gold/50 transition-all" data-slide="3"></button>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('slider-track') as HTMLElement;
+            const prevBtn = document.getElementById('slider-prev');
+            const nextBtn = document.getElementById('slider-next');
+            const dots = document.querySelectorAll('#slider-dots button');
+            const originalSlides = Array.from(track.children) as HTMLElement[];
+            const totalSlides = originalSlides.length;
+
+            function getVisibleSlides() {
+              return window.innerWidth >= 768 ? 3 : 1;
+            }
+
+            // Clone slides for infinite loop
+            function setupInfiniteLoop() {
+              // Remove any existing clones
+              track.querySelectorAll('[data-clone]').forEach(el => el.remove());
+
+              const visibleSlides = getVisibleSlides();
+
+              // Clone last slides and prepend
+              for (let i = totalSlides - 1; i >= totalSlides - visibleSlides; i--) {
+                const clone = originalSlides[i].cloneNode(true) as HTMLElement;
+                clone.setAttribute('data-clone', 'prepend');
+                track.insertBefore(clone, track.firstChild);
+              }
+
+              // Clone first slides and append
+              for (let i = 0; i < visibleSlides; i++) {
+                const clone = originalSlides[i].cloneNode(true) as HTMLElement;
+                clone.setAttribute('data-clone', 'append');
+                track.appendChild(clone);
+              }
+            }
+
+            let currentIndex = 0;
+            let isTransitioning = false;
+
+            function getSlideWidth() {
+              return 100 / getVisibleSlides();
+            }
+
+            function updateSlider(animate = true) {
+              const visibleSlides = getVisibleSlides();
+              const offset = currentIndex + visibleSlides; // Account for prepended clones
+
+              if (!animate) {
+                track.style.transition = 'none';
+              } else {
+                track.style.transition = 'transform 500ms ease-out';
+              }
+
+              track.style.transform = `translateX(-${offset * getSlideWidth()}%)`;
+
+              // Update dots
+              const maxDots = totalSlides - visibleSlides + 1;
+              const activeDot = ((currentIndex % totalSlides) + totalSlides) % totalSlides;
+              const dotIndex = Math.min(activeDot, maxDots - 1);
+
+              dots.forEach((dot, index) => {
+                if (index < maxDots) {
+                  (dot as HTMLElement).style.display = 'block';
+                  dot.classList.toggle('bg-gold', index === dotIndex);
+                  dot.classList.toggle('bg-gold/30', index !== dotIndex);
+                } else {
+                  (dot as HTMLElement).style.display = 'none';
+                }
+              });
+            }
+
+            function handleTransitionEnd() {
+              const visibleSlides = getVisibleSlides();
+              const maxIndex = totalSlides - visibleSlides;
+
+              // If we've gone past the end, jump to the beginning
+              if (currentIndex > maxIndex) {
+                currentIndex = 0;
+                updateSlider(false);
+              }
+              // If we've gone before the beginning, jump to the end
+              else if (currentIndex < 0) {
+                currentIndex = maxIndex;
+                updateSlider(false);
+              }
+
+              isTransitioning = false;
+            }
+
+            function nextSlide() {
+              if (isTransitioning) return;
+              isTransitioning = true;
+              currentIndex++;
+              updateSlider(true);
+            }
+
+            function prevSlide() {
+              if (isTransitioning) return;
+              isTransitioning = true;
+              currentIndex--;
+              updateSlider(true);
+            }
+
+            track.addEventListener('transitionend', handleTransitionEnd);
+            prevBtn?.addEventListener('click', prevSlide);
+            nextBtn?.addEventListener('click', nextSlide);
+
+            dots.forEach((dot, index) => {
+              dot.addEventListener('click', () => {
+                if (isTransitioning) return;
+                currentIndex = index;
+                updateSlider(true);
+              });
+            });
+
+            function init() {
+              setupInfiniteLoop();
+              updateSlider(false);
+            }
+
+            window.addEventListener('resize', () => {
+              init();
+            });
+
+            init();
+          });
+        </script>
+
+        <!-- Menu Link -->
+        <div class="text-center mt-12">
+          <a
+            href="/menu.pdf"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors"
+          >
+            <span data-ro="Vezi meniul complet" data-hu="Teljes menü megtekintése">Vezi meniul complet</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atmosphere Section -->
+    <section class="py-20 px-4 bg-charcoal-light">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img
+              src="/images/atmosphere.webp"
+              alt="Atmosphere at Faló Restaurant"
+              class="rounded-lg shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+
+          <div>
+            <h2 class="font-serif text-3xl md:text-4xl text-cream mb-6">
+              <span data-ro="Atmosferă tradițională" data-hu="Hagyományos hangulat">Atmosferă tradițională</span>
+            </h2>
+
+            <div class="gold-line max-w-[100px] mb-6"></div>
+
+            <p class="text-cream/80 leading-relaxed mb-6" data-ro="Restaurantul Faló vă așteaptă în stațiunea Borsec, într-un cadru rustic și primitor. Bucurați-vă de preparate autentice din regiunea Harghita, într-o atmosferă relaxată, perfectă pentru familie și prieteni." data-hu="A Faló Étterem várja Önt Borszék gyógyfürdőhelyen, rusztikus és barátságos környezetben. Élvezze a hagyományos Hargita megyei ételeket, nyugodt légkörben, amely tökéletes családnak és barátoknak.">
+              Restaurantul Faló vă așteaptă în stațiunea Borsec, într-un cadru rustic și primitor. Bucurați-vă de preparate autentice din regiunea Harghita, într-o atmosferă relaxată, perfectă pentru familie și prieteni.
+            </p>
+
+            <ul class="space-y-3 text-cream/70">
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span data-ro="Bucătărie tradițională" data-hu="Hagyományos konyha">Bucătărie tradițională</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span data-ro="Perfect pentru grupuri" data-hu="Tökéletes csoportoknak">Perfect pentru grupuri</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span data-ro="Terasă cu priveliște" data-hu="Terasza kilátással">Terasă cu priveliște</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-charcoal">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-4xl text-center text-cream mb-4">
+          <span data-ro="Unde ne găsiți" data-hu="Hol talál meg minket">Unde ne găsiți</span>
+        </h2>
+
+        <div class="ornament max-w-md mx-auto mb-12">
+          <span class="text-gold text-2xl">&#10022;</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Map -->
+          <div class="rounded-lg overflow-hidden h-80 md:h-auto">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2714.5!2d25.5513!3d46.9567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474ae8f8e8e8e8e8%3A0x8e8e8e8e8e8e8e8e!2sStrada%20Carpa%C8%9Bi%2099%2C%20Borsec!5e0!3m2!1sro!2sro!4v1"
+              width="100%"
+              height="100%"
+              style="border:0; min-height: 320px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Faló Restaurant Location"
+            ></iframe>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <!-- Address -->
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-cream font-medium mb-1" data-ro="Adresă" data-hu="Cím">Adresă</h3>
+                <p class="text-cream/70">
+                  Strada Carpați, nr 99<br/>
+                  Borsec, 535300<br/>
+                  Romania
+                </p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-cream font-medium mb-1" data-ro="Telefon" data-hu="Telefon">Telefon</h3>
+                <a href="tel:+40728905603" class="text-gold hover:text-gold-light transition-colors">
+                  0728 905 603
+                </a>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-cream font-medium mb-1" data-ro="Program" data-hu="Nyitvatartás">Program</h3>
+                <p class="text-cream/70">
+                  <span data-ro="Zilnic" data-hu="Naponta">Zilnic</span>: 8:00 - 22:00
+                </p>
+              </div>
+            </div>
+
+            <!-- Reservation CTA -->
+            <div class="pt-4">
+              <a
+                href="tel:+40728905603"
+                class="inline-flex items-center justify-center gap-2 bg-gold text-charcoal px-8 py-3 font-medium rounded hover:bg-gold-light transition-colors w-full sm:w-auto"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <span data-ro="Rezervă o masă" data-hu="Asztalfoglalás">Rezervă o masă</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 bg-charcoal border-t border-gold/20">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-cream/50 text-sm">
+        &copy; 2025 Faló Restaurant. <span data-ro="Toate drepturile rezervate." data-hu="Minden jog fenntartva.">Toate drepturile rezervate.</span>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-4">
+        <a
+          href="https://www.facebook.com/RestaurantFaloEtteremBorsec"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold hover:bg-gold hover:text-charcoal transition-colors"
+          aria-label="Facebook"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
