@@ -327,6 +327,9 @@ import Layout from '../layouts/Layout.astro';
             });
 
             init();
+
+            // Prevent scroll jump on mobile after slider init
+            window.scrollTo(0, 0);
           });
         </script>
 
