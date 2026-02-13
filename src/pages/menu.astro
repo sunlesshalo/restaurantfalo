@@ -46,13 +46,10 @@ const categories = [
 
       <!-- Category Tabs -->
       <div class="menu-tabs flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
-        {categories.map((cat, i) => (
+        {categories.map((cat) => (
           <button
             data-tab={cat.id}
-            class:list={[
-              "menu-tab rounded-full font-medium transition-all border whitespace-nowrap",
-              i === 0 ? "bg-gold text-charcoal border-gold" : "text-gold/80 border-gold/30 hover:border-gold hover:text-gold"
-            ]}
+            class="menu-tab rounded-full font-medium transition-all border whitespace-nowrap text-gold/80 border-gold/30 hover:border-gold hover:text-gold"
           >
             <span data-ro={cat.ro} data-hu={cat.hu}>{cat.ro}</span>
           </button>
@@ -60,7 +57,7 @@ const categories = [
       </div>
 
       <!-- SPECIALS -->
-      <section data-section="specials" class="menu-section">
+      <section data-section="specials" class="menu-section hidden">
         <h2 class="font-serif text-2xl text-gold text-center mb-8">
           <span data-ro="Specialitatea casei & Platouri" data-hu="A ház ajánlata & Tálak">Specialitatea casei & Platouri</span>
         </h2>
@@ -463,30 +460,39 @@ const categories = [
     document.addEventListener('DOMContentLoaded', () => {
       const tabs = document.querySelectorAll('.menu-tab');
       const sections = document.querySelectorAll('.menu-section');
+      let activeTab: string | null = null;
 
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          const target = (tab as HTMLElement).dataset.tab;
+          const target = (tab as HTMLElement).dataset.tab!;
+          const isClosing = activeTab === target;
 
-          // Update tabs
+          // Reset all tabs
           tabs.forEach(t => {
             t.classList.remove('bg-gold', 'text-charcoal', 'border-gold');
             t.classList.add('text-gold/80', 'border-gold/30');
           });
-          tab.classList.add('bg-gold', 'text-charcoal', 'border-gold');
-          tab.classList.remove('text-gold/80', 'border-gold/30');
 
-          // Update sections
-          sections.forEach(s => {
-            const section = s as HTMLElement;
-            if (section.dataset.section === target) {
-              section.classList.remove('hidden');
-            } else {
-              section.classList.add('hidden');
-            }
-          });
+          // Hide all sections
+          sections.forEach(s => s.classList.add('hidden'));
 
-          // Scroll to top of menu
+          if (isClosing) {
+            // Toggle off — everything stays closed
+            activeTab = null;
+          } else {
+            // Open the clicked category
+            activeTab = target;
+            tab.classList.add('bg-gold', 'text-charcoal', 'border-gold');
+            tab.classList.remove('text-gold/80', 'border-gold/30');
+
+            sections.forEach(s => {
+              if ((s as HTMLElement).dataset.section === target) {
+                s.classList.remove('hidden');
+              }
+            });
+          }
+
+          // Scroll to tabs
           document.getElementById('menu-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
