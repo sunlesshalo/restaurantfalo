@@ -45,12 +45,12 @@ const categories = [
       </div>
 
       <!-- Category Tabs -->
-      <div class="flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
+      <div class="menu-tabs flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
         {categories.map((cat, i) => (
           <button
             data-tab={cat.id}
             class:list={[
-              "menu-tab px-4 py-2 rounded-full text-sm font-medium transition-all border",
+              "menu-tab rounded-full font-medium transition-all border whitespace-nowrap",
               i === 0 ? "bg-gold text-charcoal border-gold" : "text-gold/80 border-gold/30 hover:border-gold hover:text-gold"
             ]}
           >
@@ -432,19 +432,29 @@ const categories = [
       background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
       margin: 1.5rem 0;
     }
+    /* Tabs */
+    .menu-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
     @media (max-width: 640px) {
-      .menu-name {
-        white-space: normal;
-        font-size: 0.9rem;
+      .menu-tab {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.75rem;
       }
-      .menu-item {
-        flex-wrap: wrap;
+      .menu-name {
+        font-size: 0.85rem;
+        white-space: normal;
+      }
+      .menu-price {
+        font-size: 0.85rem;
+        min-width: 3rem;
+      }
+      .menu-meta {
+        font-size: 0.65rem;
       }
       .menu-dots {
-        display: none;
-      }
-      .menu-meta, .menu-price {
-        margin-left: auto;
+        min-width: 1rem;
       }
     }
   </style>
