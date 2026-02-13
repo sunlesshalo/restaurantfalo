@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  { id: "specials", ro: "Specialități", hu: "Ajánlat" },
+  { id: "breakfast", ro: "Mic dejun", hu: "Reggeli" },
+  { id: "soups", ro: "Supe", hu: "Levesek" },
+  { id: "pork", ro: "Porc", hu: "Sertés" },
+  { id: "chicken", ro: "Pui", hu: "Csirke" },
+  { id: "beef-fish", ro: "Vită & Pește", hu: "Marha & Hal" },
+  { id: "vegetarian", ro: "Vegetariene", hu: "Vegetáriánus" },
+  { id: "salads", ro: "Salate", hu: "Saláták" },
+  { id: "sides", ro: "Garnituri", hu: "Köretek" },
+  { id: "sauces", ro: "Sosuri", hu: "Mártások" },
+  { id: "dessert", ro: "Desert", hu: "Desszert" },
+  { id: "drinks", ro: "Băuturi", hu: "Italok" },
+];
+---
+
+<Layout title="Meniu | Faló Restaurant">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="text-gold font-serif text-xl tracking-wider">FALÓ</a>
+      <div class="flex items-center gap-1 text-sm">
+        <button data-lang-btn="ro" onclick="setLang('ro')" class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium">RO</button>
+        <button data-lang-btn="hu" onclick="setLang('hu')" class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10">HU</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20 pb-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Title -->
+      <h1 class="font-serif text-4xl md:text-5xl text-center text-gold mb-2 mt-4">
+        <span data-ro="Meniu" data-hu="Étlap">Meniu</span>
+      </h1>
+      <div class="ornament max-w-xs mx-auto mb-8">
+        <span class="text-gold text-xl">&#10022;</span>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
+        {categories.map((cat, i) => (
+          <button
+            data-tab={cat.id}
+            class:list={[
+              "menu-tab px-4 py-2 rounded-full text-sm font-medium transition-all border",
+              i === 0 ? "bg-gold text-charcoal border-gold" : "text-gold/80 border-gold/30 hover:border-gold hover:text-gold"
+            ]}
+          >
+            <span data-ro={cat.ro} data-hu={cat.hu}>{cat.ro}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- SPECIALS -->
+      <section data-section="specials" class="menu-section">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Specialitatea casei & Platouri" data-hu="A ház ajánlata & Tálak">Specialitatea casei & Platouri</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Gulaș" data-hu="Gulyás">Gulaș</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">54 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Gulaș cu fasole" data-hu="Babgulyás">Gulaș cu fasole</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">47 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Borzoska</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">51 lei</span></div>
+          <div class="menu-divider"></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Platou Falo" data-hu="Faló Tál">Platou Falo</span><span class="menu-dots"></span><span class="menu-meta">500g</span><span class="menu-price">66 lei</span></div>
+          <div class="menu-desc" data-ro="Piept de pui si cotlet la grătar, mititei, cașcaval pane, cartofi țărănești, sos" data-hu="Roston sült csirkemell és karaj, miccs, rántott sajt, parasztkrumpli, szósz">Piept de pui si cotlet la grătar, mititei, cașcaval pane, cartofi țărănești, sos</div>
+          <div class="menu-item"><span class="menu-name" data-ro="Platou mititei" data-hu="Miccs tál">Platou mititei</span><span class="menu-dots"></span><span class="menu-meta">300/200/100g</span><span class="menu-price">44 lei</span></div>
+          <div class="menu-desc" data-ro="4 buc. mititei, cartofi prajiți, muștar, pâine" data-hu="4 miccs, szalmakrumpli, mustár, kenyér">4 buc. mititei, cartofi prajiți, muștar, pâine</div>
+        </div>
+      </section>
+
+      <!-- BREAKFAST -->
+      <section data-section="breakfast" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-2">
+          <span data-ro="Mic dejun" data-hu="Reggeli">Mic dejun</span>
+        </h2>
+        <p class="text-center text-cream/50 text-sm mb-8" data-ro="Omletă / Omlett" data-hu="Omletták">Omletă / Omlett</p>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Simplu" data-hu="Szimpla">Simplu</span><span class="menu-dots"></span><span class="menu-meta">100g</span><span class="menu-price">18 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cașcaval" data-hu="Sajtos">Cașcaval</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">23 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Șuncă" data-hu="Sonkás">Șuncă</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">23 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Șuncă si cașcaval" data-hu="Sonkás sajtos">Șuncă si cașcaval</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">25 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ochiuri" data-hu="Tükörtojás">Ochiuri</span><span class="menu-dots"></span><span class="menu-meta">3 buc</span><span class="menu-price">19 lei</span></div>
+        </div>
+      </section>
+
+      <!-- SOUPS -->
+      <section data-section="soups" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Supe" data-hu="Levesek">Supe</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă de burtă + smântână + ardei iute" data-hu="Pacalleves + tejföl + csípőspaprika">Ciorbă de burtă + smântână + ardei iute</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">29 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă rădăuteană + smântână + ardei iute" data-hu="Radóci csorba + tejföl + csípőspaprika">Ciorbă rădăuteană + smântână + ardei iute</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">26 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă de legume" data-hu="Zöldségleves">Ciorbă de legume</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">22 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă cu zeama de varză și perișoare" data-hu="Káposztaléleves húsgomboccal">Ciorbă cu zeama de varză și perișoare</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">24 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă țărăneasca (porc)" data-hu="Paraszt csorba (sertés)">Ciorbă țărăneasca (porc)</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">25 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciorbă țărăneasca (vită)" data-hu="Paraszt csorba (növendék)">Ciorbă țărăneasca (vită)</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">30 lei</span></div>
+        </div>
+      </section>
+
+      <!-- PORK -->
+      <section data-section="pork" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Porc" data-hu="Sertés">Porc</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Ceafă la grătar" data-hu="Roston sült csontozott nyakaskaraj">Ceafă la grătar</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">37 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciolan dezosat la cuptor" data-hu="Csontnélküli tepsis csülök">Ciolan dezosat la cuptor</span><span class="menu-dots"></span><span class="menu-meta">450g</span><span class="menu-price">58 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciolan la grătar cu fasole și ceapă roșie" data-hu="Roston sült csülök babbal, lilahagymával">Ciolan la grătar cu fasole și ceapă roșie</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">48 lei</span></div>
+        </div>
+      </section>
+
+      <!-- CHICKEN -->
+      <section data-section="chicken" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Pui" data-hu="Csirke">Pui</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Piept de pui la grătar" data-hu="Roston sült csirkemell">Piept de pui la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Pulpă de pui dezosat la grătar" data-hu="Roston sült csontozott csirkecomb">Pulpă de pui dezosat la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Snițel din piept de pui" data-hu="Panírozott csirkemell">Snițel din piept de pui</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
+        </div>
+      </section>
+
+      <!-- BEEF & FISH -->
+      <section data-section="beef-fish" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Vită & Pește" data-hu="Marha & Hal">Vită & Pește</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Tocănița de vită" data-hu="Növendékpörkölt">Tocănița de vită</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">50 lei</span></div>
+          <div class="menu-divider"></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Păstrăv" data-hu="Pisztráng">Păstrăv</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">40 lei</span></div>
+        </div>
+      </section>
+
+      <!-- VEGETARIAN -->
+      <section data-section="vegetarian" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Vegetariene" data-hu="Vegetáriánus ételek">Vegetariene</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Ciuperci pane cu sos tartar" data-hu="Panírozott gomba tartármártással">Ciuperci pane cu sos tartar</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cașcaval pane" data-hu="Panírozott sajt">Cașcaval pane</span><span class="menu-dots"></span><span class="menu-meta">300g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Tocănița de ciuperci" data-hu="Gombapaprikás">Tocănița de ciuperci</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Legume la grătar" data-hu="Grillezett zöldség">Legume la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">28 lei</span></div>
+        </div>
+      </section>
+
+      <!-- SALADS -->
+      <section data-section="salads" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Salate" data-hu="Saláták">Salate</span>
+        </h2>
+        <div class="space-y-0">
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Cu dressing" data-hu="Dresszinggel">Cu dressing</p>
+          <div class="menu-item"><span class="menu-name" data-ro="Salată Falo" data-hu="Faló saláta">Salată Falo</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">40 lei</span></div>
+          <div class="menu-desc" data-ro="Piept de pui, salată, roșii, ardei, castraveți, cașcaval, crutoane, sos" data-hu="Csirkemell, saláta, paradicsom, uborka, paprika, sajt, kenyérkocka, szósz">Piept de pui, salată, roșii, ardei, castraveți, cașcaval, crutoane, sos</div>
+          <div class="menu-item"><span class="menu-name" data-ro="Salată ton" data-hu="Tonhal saláta">Salată ton</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">40 lei</span></div>
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Simple" data-hu="Egyszerű saláták">Simple</p>
+          <div class="menu-item"><span class="menu-name" data-ro="Salată de varză" data-hu="Káposztasaláta">Salată de varză</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">11 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Varză murată" data-hu="Savanyú káposzta">Varză murată</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Castraveți murați" data-hu="Savanyú uborka">Castraveți murați</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">13 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Sfeclă roșie" data-hu="Cékla">Sfeclă roșie</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Salată asortată" data-hu="Vegyes saláta">Salată asortată</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">13 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Salată de roșii" data-hu="Paradicsom saláta">Salată de roșii</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ardei iute" data-hu="Csípős paprika">Ardei iute</span><span class="menu-dots"></span><span class="menu-meta">1 buc</span><span class="menu-price">3 lei</span></div>
+        </div>
+      </section>
+
+      <!-- SIDES -->
+      <section data-section="sides" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Garnituri" data-hu="Köretek">Garnituri</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Cartofi prajiți" data-hu="Sült krumpli">Cartofi prajiți</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cartofi natur" data-hu="Petrezselymes krumpli">Cartofi natur</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">13 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cartofi țărănești" data-hu="Paraszt krumpli">Cartofi țărănești</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">17 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cartofi steak" data-hu="Steak krumpli">Cartofi steak</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">17 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Piure de cartofi" data-hu="Krumplipüré">Piure de cartofi</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">17 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Mămăligă" data-hu="Puliszka">Mămăligă</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Orez" data-hu="Rizs">Orez</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">11 lei</span></div>
+        </div>
+      </section>
+
+      <!-- SAUCES -->
+      <section data-section="sauces" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Sosuri & Pâine" data-hu="Mártások & Kenyér">Sosuri & Pâine</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Sos tartar" data-hu="Tartármártás">Sos tartar</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">11 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Ketchup</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">8 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Muștar" data-hu="Mustár">Muștar</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">8 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Maioneză" data-hu="Majonéz">Maioneză</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">9 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Mujdei" data-hu="Fokhagymaszósz">Mujdei</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Smântână" data-hu="Tejföl">Smântână</span><span class="menu-dots"></span><span class="menu-meta">50g</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-divider"></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Pâine de casă" data-hu="Házikenyér">Pâine de casă</span><span class="menu-dots"></span><span class="menu-meta">100g</span><span class="menu-price">3 lei</span></div>
+        </div>
+      </section>
+
+      <!-- DESSERT -->
+      <section data-section="dessert" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Desert" data-hu="Desszert">Desert</span>
+        </h2>
+        <div class="space-y-0">
+          <div class="menu-item"><span class="menu-name" data-ro="Papanași" data-hu="Turofánk">Papanași</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">29 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Marlenka</span><span class="menu-dots"></span><span class="menu-meta">110g</span><span class="menu-price">21 lei</span></div>
+        </div>
+      </section>
+
+      <!-- DRINKS -->
+      <section data-section="drinks" class="menu-section hidden">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+          <span data-ro="Băuturi" data-hu="Italok">Băuturi</span>
+        </h2>
+        <div class="space-y-0">
+          <!-- Spirits -->
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Băuturi spirtoase" data-hu="Tömény italok">Băuturi spirtoase</p>
+          <div class="menu-item"><span class="menu-name" data-ro="Csíki Afine, Vișine" data-hu="Csíki Áfonya, Meggy">Csíki Afine, Vișine</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Martini Blanco, Rosso</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">16 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Finlandia</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">22 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Stalinskaya</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">18 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Chivas Regal 18 ani" data-hu="Chivas Regal 18 év">Chivas Regal 18 ani</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">46 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Jack Daniels</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">34 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Gentlemen Jack</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">44 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Jameson Irish</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">36 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Jagermeister</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">24 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Unicum</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">26 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Baileys</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">32 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Jidvei Cognac" data-hu="Konyak">Jidvei Cognac</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">26 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Brâncoveanu XO</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">94 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Kvint 6 Ani" data-hu="Kvint 6 év">Kvint 6 Ani</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">24 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Wembley Dry Gin</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">20 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Bacardi</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">20 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Vilmos Körte</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">26 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Pălincă de Glodeni" data-hu="Marossárpataki Kisüsti Pálinka">Pălincă de Glodeni</span><span class="menu-dots"></span><span class="menu-meta">100 ml</span><span class="menu-price">26 lei</span></div>
+
+          <!-- Beer -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Bere" data-hu="Sörök">Bere</p>
+          <div class="menu-item"><span class="menu-name">Tiltott Csíki</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Tiltott Csíki Bruna" data-hu="Tiltott Csíki Barna">Tiltott Csíki Bruna</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Csíki Nefiltrată" data-hu="Csíki Szűretlen">Csíki Nefiltrată</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Csíki Gold</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Csíki Afine" data-hu="Csíki Áfonya">Csíki Afine</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Csíki Zmeură" data-hu="Csíki Vadmálna">Csíki Zmeură</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Ciuc Premium</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">11 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Harghita</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Heineken</span><span class="menu-dots"></span><span class="menu-meta">400 ml</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Stella Artois</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">16 lei</span></div>
+
+          <!-- Draft -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Bere la draft" data-hu="Csapolt sör">Bere la draft</p>
+          <div class="menu-item"><span class="menu-name">Tiltott Csíki</span><span class="menu-dots"></span><span class="menu-meta">400 ml</span><span class="menu-price">14 lei</span></div>
+
+          <!-- Non-alcoholic beer -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Bere fără alcool" data-hu="Alkoholmentes sörök">Bere fără alcool</p>
+          <div class="menu-item"><span class="menu-name">Ciuc Radler</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">13 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Stella Artois</span><span class="menu-dots"></span><span class="menu-meta">330 ml</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Ursus</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">14 lei</span></div>
+
+          <!-- Soft drinks -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Răcoritoare" data-hu="Üdítők">Răcoritoare</p>
+          <div class="menu-item"><span class="menu-name">Coca Cola</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Fanta</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Sprite</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Schweppes</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Fuzetea</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Cappy</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Limonadă" data-hu="Limonádé">Limonadă</span><span class="menu-dots"></span><span class="menu-meta">500 ml</span><span class="menu-price">16 lei</span></div>
+
+          <!-- Water -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Apa minerală" data-hu="Ásványvíz">Apa minerală</p>
+          <div class="menu-item"><span class="menu-name" data-ro="Borsec carbogazoasă" data-hu="Borszéki szénsavas">Borsec carbogazoasă</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Borsec carbogazoasă" data-hu="Borszéki szénsavas">Borsec carbogazoasă</span><span class="menu-dots"></span><span class="menu-meta">330 ml</span><span class="menu-price">7 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Borsec plată" data-hu="Borszéki szénsavmentes">Borsec plată</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Borsec plată" data-hu="Borszéki szénsavmentes">Borsec plată</span><span class="menu-dots"></span><span class="menu-meta">330 ml</span><span class="menu-price">7 lei</span></div>
+
+          <!-- Coffee & Tea -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Cafea & Ceai" data-hu="Kávé & Tea">Cafea & Ceai</p>
+          <div class="menu-item"><span class="menu-name">Espresso</span><span class="menu-dots"></span><span class="menu-meta">30 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Latte Macchiato</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Cappuccino</span><span class="menu-dots"></span><span class="menu-meta">150 ml</span><span class="menu-price">13 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Cafea Decofein" data-hu="Koffeinmentes kávé">Cafea Decofein</span><span class="menu-dots"></span><span class="menu-meta">30 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ciocolată" data-hu="Forró csokoládé">Ciocolată</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">14 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Ceai" data-hu="Tea">Ceai</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">10 lei</span></div>
+
+          <!-- Energy -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Energizant" data-hu="Energiaital">Energizant</p>
+          <div class="menu-item"><span class="menu-name">Burn</span><span class="menu-dots"></span><span class="menu-meta">250 ml</span><span class="menu-price">12 lei</span></div>
+
+          <!-- Wine -->
+          <div class="menu-divider"></div>
+          <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Vinuri" data-hu="Borok">Vinuri</p>
+          <p class="text-gold/40 text-xs italic mb-3" data-ro="Vin roșu" data-hu="Vörösbor">Vin roșu</p>
+          <div class="menu-item"><span class="menu-name">Purcari Rara Neagră-Nocturn</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Purcari Cabernet Sauvignon-Nocturn</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Orașul Sub. Rara Neagră</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Orașul Sub. Fetească Neagră</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <p class="text-gold/40 text-xs italic mb-3 mt-4" data-ro="Vin alb" data-hu="Fehér bor">Vin alb</p>
+          <div class="menu-item"><span class="menu-name">Purcari Sauvignon Blanc-Nocturn</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Purcari Chardonnay-Nocturn</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Orașul Sub. Viorica</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Cricova Elogiu</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <p class="text-gold/40 text-xs italic mb-3 mt-4">Rosé</p>
+          <div class="menu-item"><span class="menu-name">Rose de Purcari-Nocturn</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Orașul Sub. Cabarnet-Sauvignon & Merlot</span><span class="menu-dots"></span><span class="menu-meta">750 ml</span><span class="menu-price">110 lei</span></div>
+          <p class="text-gold/40 text-xs italic mb-3 mt-4" data-ro="Vinul casei" data-hu="A ház bora">Vinul casei</p>
+          <div class="menu-item"><span class="menu-name" data-ro="Alb" data-hu="Fehér">Alb</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Roșu" data-hu="Vörös">Roșu</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name">Rosé</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-item"><span class="menu-name" data-ro="Vin Fiert" data-hu="Forralt bor">Vin Fiert</span><span class="menu-dots"></span><span class="menu-meta">200 ml</span><span class="menu-price">12 lei</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-gold/20 text-center">
+    <a href="/" class="text-gold/60 hover:text-gold transition-colors text-sm">
+      &larr; <span data-ro="Înapoi la pagina principală" data-hu="Vissza a főoldalra">Înapoi la pagina principală</span>
+    </a>
+  </footer>
+
+  <style>
+    .menu-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+    }
+    .menu-name {
+      white-space: nowrap;
+      color: var(--color-cream);
+      font-weight: 500;
+    }
+    .menu-dots {
+      flex: 1;
+      border-bottom: 1px dotted rgba(201, 169, 98, 0.3);
+      min-width: 2rem;
+      margin-bottom: 0.3em;
+    }
+    .menu-meta {
+      white-space: nowrap;
+      color: rgba(245, 242, 235, 0.4);
+      font-size: 0.8rem;
+    }
+    .menu-price {
+      white-space: nowrap;
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 1rem;
+      min-width: 3.5rem;
+      text-align: right;
+    }
+    .menu-desc {
+      padding: 0 0 0.75rem 0;
+      color: rgba(245, 242, 235, 0.5);
+      font-size: 0.85rem;
+      font-style: italic;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+    }
+    .menu-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 640px) {
+      .menu-name {
+        white-space: normal;
+        font-size: 0.9rem;
+      }
+      .menu-item {
+        flex-wrap: wrap;
+      }
+      .menu-dots {
+        display: none;
+      }
+      .menu-meta, .menu-price {
+        margin-left: auto;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.menu-tab');
+      const sections = document.querySelectorAll('.menu-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = (tab as HTMLElement).dataset.tab;
+
+          // Update tabs
+          tabs.forEach(t => {
+            t.classList.remove('bg-gold', 'text-charcoal', 'border-gold');
+            t.classList.add('text-gold/80', 'border-gold/30');
+          });
+          tab.classList.add('bg-gold', 'text-charcoal', 'border-gold');
+          tab.classList.remove('text-gold/80', 'border-gold/30');
+
+          // Update sections
+          sections.forEach(s => {
+            const section = s as HTMLElement;
+            if (section.dataset.section === target) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+
+          // Scroll to top of menu
+          document.getElementById('menu-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    });
+  </script>
+</Layout>
