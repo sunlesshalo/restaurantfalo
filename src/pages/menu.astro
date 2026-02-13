@@ -22,9 +22,14 @@ const categories = [
   <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gold/20">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="text-gold font-serif text-xl tracking-wider">FALÓ</a>
-      <div class="flex items-center gap-1 text-sm">
-        <button data-lang-btn="ro" onclick="setLang('ro')" class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium">RO</button>
-        <button data-lang-btn="hu" onclick="setLang('hu')" class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10">HU</button>
+      <div class="flex items-center gap-4">
+        <a href="/alergeni" class="text-cream/60 hover:text-gold text-sm transition-colors">
+          <span data-ro="Alergeni" data-hu="Allergének">Alergeni</span>
+        </a>
+        <div class="flex items-center gap-1 text-sm">
+          <button data-lang-btn="ro" onclick="setLang('ro')" class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium">RO</button>
+          <button data-lang-btn="hu" onclick="setLang('hu')" class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10">HU</button>
+        </div>
       </div>
     </div>
   </header>
@@ -61,13 +66,18 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Gulaș" data-hu="Gulyás">Gulaș</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">54 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Făină de grâu (gluten), boabe de muștar, țelină" data-hu="Allergének: Búza liszt (glutén), mustármag, zeller">Alergeni: Făină de grâu (gluten), boabe de muștar, țelină</div>
           <div class="menu-item"><span class="menu-name" data-ro="Gulaș cu fasole" data-hu="Babgulyás">Gulaș cu fasole</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">47 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Gluten, Ouă, Soia, Muștar, Susan. Conține urme de: Lapte, Țelină" data-hu="Allergének: Glutén, Tojás, Szója, Mustár, Szezám. Tartalmaz: Tej, Zeller">Alergeni: Gluten, Ouă, Soia, Muștar, Susan. Conține urme de: Lapte, Țelină</div>
           <div class="menu-item"><span class="menu-name">Borzoska</span><span class="menu-dots"></span><span class="menu-meta">440g</span><span class="menu-price">51 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: ouă, gluten" data-hu="Allergének: tojás, glutén">Alergeni: ouă, gluten</div>
           <div class="menu-divider"></div>
           <div class="menu-item"><span class="menu-name" data-ro="Platou Falo" data-hu="Faló Tál">Platou Falo</span><span class="menu-dots"></span><span class="menu-meta">500g</span><span class="menu-price">66 lei</span></div>
           <div class="menu-desc" data-ro="Piept de pui si cotlet la grătar, mititei, cașcaval pane, cartofi țărănești, sos" data-hu="Roston sült csirkemell és karaj, miccs, rántott sajt, parasztkrumpli, szósz">Piept de pui si cotlet la grătar, mititei, cașcaval pane, cartofi țărănești, sos</div>
+          <div class="menu-allergen" data-ro="Alergeni: Ouă, gluten, lapte (inclusiv lactoză), muștar, soia. *Conține produse congelate*" data-hu="Allergének: Tojás, glutén, tej (beleértve a laktózt), mustár, szója. *Fagyasztott terméket tartalmaz*">Alergeni: Ouă, gluten, lapte (inclusiv lactoză), muștar, soia. *Conține produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Platou mititei" data-hu="Miccs tál">Platou mititei</span><span class="menu-dots"></span><span class="menu-meta">300/200/100g</span><span class="menu-price">44 lei</span></div>
           <div class="menu-desc" data-ro="4 buc. mititei, cartofi prajiți, muștar, pâine" data-hu="4 miccs, szalmakrumpli, mustár, kenyér">4 buc. mititei, cartofi prajiți, muștar, pâine</div>
+          <div class="menu-allergen" data-ro="Alergeni: muștar, țelină. *Conține produse congelate*" data-hu="Allergének: mustár, zeller. *Fagyasztott terméket tartalmaz*">Alergeni: muștar, țelină. *Conține produse congelate*</div>
         </div>
       </section>
 
@@ -79,10 +89,15 @@ const categories = [
         <p class="text-center text-cream/50 text-sm mb-8" data-ro="Omletă / Omlett" data-hu="Omletták">Omletă / Omlett</p>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Simplu" data-hu="Szimpla">Simplu</span><span class="menu-dots"></span><span class="menu-meta">100g</span><span class="menu-price">18 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: ouă" data-hu="Allergének: tojás">Alergeni: ouă</div>
           <div class="menu-item"><span class="menu-name" data-ro="Cașcaval" data-hu="Sajtos">Cașcaval</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">23 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Ouă, Lapte" data-hu="Allergének: Tojás, Tej">Alergeni: Ouă, Lapte</div>
           <div class="menu-item"><span class="menu-name" data-ro="Șuncă" data-hu="Sonkás">Șuncă</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">23 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: țelină, lactoză, lapte, ouă" data-hu="Allergének: zeller, laktóz, tej, tojás">Alergeni: țelină, lactoză, lapte, ouă</div>
           <div class="menu-item"><span class="menu-name" data-ro="Șuncă si cașcaval" data-hu="Sonkás sajtos">Șuncă si cașcaval</span><span class="menu-dots"></span><span class="menu-meta">100/50g</span><span class="menu-price">25 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lactoză, ouă" data-hu="Allergének: laktóz, tojás">Alergeni: lactoză, ouă</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ochiuri" data-hu="Tükörtojás">Ochiuri</span><span class="menu-dots"></span><span class="menu-meta">3 buc</span><span class="menu-price">19 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: ouă" data-hu="Allergének: tojás">Alergeni: ouă</div>
         </div>
       </section>
 
@@ -93,11 +108,17 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă de burtă + smântână + ardei iute" data-hu="Pacalleves + tejföl + csípőspaprika">Ciorbă de burtă + smântână + ardei iute</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">29 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Ouă, Lapte, Țelină, Sulfiți. *Conține produse congelate*" data-hu="Allergének: Tojás, Tej, Zeller, Szulfitok. *Fagyasztott terméket tartalmaz*">Alergeni: Ouă, Lapte, Țelină, Sulfiți. *Conține produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă rădăuteană + smântână + ardei iute" data-hu="Radóci csorba + tejföl + csípőspaprika">Ciorbă rădăuteană + smântână + ardei iute</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">26 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Ouă, Lapte, Țelină, Sulfiți" data-hu="Allergének: Tojás, Tej, Zeller, Szulfitok">Alergeni: Ouă, Lapte, Țelină, Sulfiți</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă de legume" data-hu="Zöldségleves">Ciorbă de legume</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">22 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: țelină. *Conține produse congelate*" data-hu="Allergének: zeller. *Fagyasztott terméket tartalmaz*">Alergeni: țelină. *Conține produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă cu zeama de varză și perișoare" data-hu="Káposztaléleves húsgomboccal">Ciorbă cu zeama de varză și perișoare</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">24 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: țelină, ouă" data-hu="Allergének: zeller, tojás">Alergeni: țelină, ouă</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă țărăneasca (porc)" data-hu="Paraszt csorba (sertés)">Ciorbă țărăneasca (porc)</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">25 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: țelină. *Conține produse congelate*" data-hu="Allergének: zeller. *Fagyasztott terméket tartalmaz*">Alergeni: țelină. *Conține produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciorbă țărăneasca (vită)" data-hu="Paraszt csorba (növendék)">Ciorbă țărăneasca (vită)</span><span class="menu-dots"></span><span class="menu-meta">350g</span><span class="menu-price">30 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: țelină. *Conține produse congelate*" data-hu="Allergének: zeller. *Fagyasztott terméket tartalmaz*">Alergeni: țelină. *Conține produse congelate*</div>
         </div>
       </section>
 
@@ -110,6 +131,7 @@ const categories = [
           <div class="menu-item"><span class="menu-name" data-ro="Ceafă la grătar" data-hu="Roston sült csontozott nyakaskaraj">Ceafă la grătar</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">37 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciolan dezosat la cuptor" data-hu="Csontnélküli tepsis csülök">Ciolan dezosat la cuptor</span><span class="menu-dots"></span><span class="menu-meta">450g</span><span class="menu-price">58 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Ciolan la grătar cu fasole și ceapă roșie" data-hu="Roston sült csülök babbal, lilahagymával">Ciolan la grătar cu fasole și ceapă roșie</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">48 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Soia, Lapte. Conține: Țelină" data-hu="Allergének: Szója, Tej. Tartalmaz: Zeller">Alergeni: Soia, Lapte. Conține: Țelină</div>
         </div>
       </section>
 
@@ -122,6 +144,7 @@ const categories = [
           <div class="menu-item"><span class="menu-name" data-ro="Piept de pui la grătar" data-hu="Roston sült csirkemell">Piept de pui la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Pulpă de pui dezosat la grătar" data-hu="Roston sült csontozott csirkecomb">Pulpă de pui dezosat la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Snițel din piept de pui" data-hu="Panírozott csirkemell">Snițel din piept de pui</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">32 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Gluten, Ouă" data-hu="Allergének: Glutén, Tojás">Alergeni: Gluten, Ouă</div>
         </div>
       </section>
 
@@ -134,6 +157,7 @@ const categories = [
           <div class="menu-item"><span class="menu-name" data-ro="Tocănița de vită" data-hu="Növendékpörkölt">Tocănița de vită</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">50 lei</span></div>
           <div class="menu-divider"></div>
           <div class="menu-item"><span class="menu-name" data-ro="Păstrăv" data-hu="Pisztráng">Păstrăv</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">40 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Pește. *Provenit din produse congelate*" data-hu="Allergének: Hal. *Fagyasztott termékekből származik*">Alergeni: Pește. *Provenit din produse congelate*</div>
         </div>
       </section>
 
@@ -144,8 +168,11 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Ciuperci pane cu sos tartar" data-hu="Panírozott gomba tartármártással">Ciuperci pane cu sos tartar</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lapte, ouă, gluten" data-hu="Allergének: tej, tojás, glutén">Alergeni: lapte, ouă, gluten</div>
           <div class="menu-item"><span class="menu-name" data-ro="Cașcaval pane" data-hu="Panírozott sajt">Cașcaval pane</span><span class="menu-dots"></span><span class="menu-meta">300g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lapte, soia, ouă, gluten. *Provenit din produse congelate*" data-hu="Allergének: tej, szója, tojás, glutén. *Fagyasztott termékekből származik*">Alergeni: lapte, soia, ouă, gluten. *Provenit din produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Tocănița de ciuperci" data-hu="Gombapaprikás">Tocănița de ciuperci</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">28 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Dioxid de sulf și sulfiți" data-hu="Allergének: Kén-dioxid és szulfitok">Alergeni: Dioxid de sulf și sulfiți</div>
           <div class="menu-item"><span class="menu-name" data-ro="Legume la grătar" data-hu="Grillezett zöldség">Legume la grătar</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">28 lei</span></div>
         </div>
       </section>
@@ -159,7 +186,9 @@ const categories = [
           <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Cu dressing" data-hu="Dresszinggel">Cu dressing</p>
           <div class="menu-item"><span class="menu-name" data-ro="Salată Falo" data-hu="Faló saláta">Salată Falo</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">40 lei</span></div>
           <div class="menu-desc" data-ro="Piept de pui, salată, roșii, ardei, castraveți, cașcaval, crutoane, sos" data-hu="Csirkemell, saláta, paradicsom, uborka, paprika, sajt, kenyérkocka, szósz">Piept de pui, salată, roșii, ardei, castraveți, cașcaval, crutoane, sos</div>
+          <div class="menu-allergen" data-ro="Alergeni: Lapte" data-hu="Allergének: Tej">Alergeni: Lapte</div>
           <div class="menu-item"><span class="menu-name" data-ro="Salată ton" data-hu="Tonhal saláta">Salată ton</span><span class="menu-dots"></span><span class="menu-meta">400g</span><span class="menu-price">40 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Pește, Lapte, Ouă, Muștar" data-hu="Allergének: Hal, Tej, Tojás, Mustár">Alergeni: Pește, Lapte, Ouă, Muștar</div>
           <div class="menu-divider"></div>
           <p class="text-gold/60 text-xs uppercase tracking-wider mb-4" data-ro="Simple" data-hu="Egyszerű saláták">Simple</p>
           <div class="menu-item"><span class="menu-name" data-ro="Salată de varză" data-hu="Káposztasaláta">Salată de varză</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">11 lei</span></div>
@@ -179,10 +208,13 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Cartofi prajiți" data-hu="Sült krumpli">Cartofi prajiți</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">15 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Gluten. *Provenit din produse congelate*" data-hu="Allergének: Glutén. *Fagyasztott termékekből származik*">Alergeni: Gluten. *Provenit din produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Cartofi natur" data-hu="Petrezselymes krumpli">Cartofi natur</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">13 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Cartofi țărănești" data-hu="Paraszt krumpli">Cartofi țărănești</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">17 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Cartofi steak" data-hu="Steak krumpli">Cartofi steak</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">17 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Muștar, Gluten. *Provenit din produse congelate*" data-hu="Allergének: Mustár, Glutén. *Fagyasztott termékekből származik*">Alergeni: Muștar, Gluten. *Provenit din produse congelate*</div>
           <div class="menu-item"><span class="menu-name" data-ro="Piure de cartofi" data-hu="Krumplipüré">Piure de cartofi</span><span class="menu-dots"></span><span class="menu-meta">250g</span><span class="menu-price">17 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lapte" data-hu="Allergének: tej">Alergeni: lapte</div>
           <div class="menu-item"><span class="menu-name" data-ro="Mămăligă" data-hu="Puliszka">Mămăligă</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">12 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Orez" data-hu="Rizs">Orez</span><span class="menu-dots"></span><span class="menu-meta">150g</span><span class="menu-price">11 lei</span></div>
         </div>
@@ -195,11 +227,16 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Sos tartar" data-hu="Tartármártás">Sos tartar</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">11 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: gălbenuș de ouă, muștar, lapte" data-hu="Allergének: tojássárgája, mustár, tej">Alergeni: gălbenuș de ouă, muștar, lapte</div>
           <div class="menu-item"><span class="menu-name">Ketchup</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">8 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Gluten, Ouă, Soia, Lapte, Muștar, Susan" data-hu="Allergének: Glutén, Tojás, Szója, Tej, Mustár, Szezám">Alergeni: Gluten, Ouă, Soia, Lapte, Muștar, Susan</div>
           <div class="menu-item"><span class="menu-name" data-ro="Muștar" data-hu="Mustár">Muștar</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">8 lei</span></div>
           <div class="menu-item"><span class="menu-name" data-ro="Maioneză" data-hu="Majonéz">Maioneză</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">9 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: Boabe de muștar, praf de ou" data-hu="Allergének: Mustármag, tojáspor">Alergeni: Boabe de muștar, praf de ou</div>
           <div class="menu-item"><span class="menu-name" data-ro="Mujdei" data-hu="Fokhagymaszósz">Mujdei</span><span class="menu-dots"></span><span class="menu-meta">70g</span><span class="menu-price">12 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lactoză" data-hu="Allergének: laktóz">Alergeni: lactoză</div>
           <div class="menu-item"><span class="menu-name" data-ro="Smântână" data-hu="Tejföl">Smântână</span><span class="menu-dots"></span><span class="menu-meta">50g</span><span class="menu-price">10 lei</span></div>
+          <div class="menu-allergen" data-ro="Conține: Lapte" data-hu="Tartalmaz: Tej">Conține: Lapte</div>
           <div class="menu-divider"></div>
           <div class="menu-item"><span class="menu-name" data-ro="Pâine de casă" data-hu="Házikenyér">Pâine de casă</span><span class="menu-dots"></span><span class="menu-meta">100g</span><span class="menu-price">3 lei</span></div>
         </div>
@@ -212,7 +249,9 @@ const categories = [
         </h2>
         <div class="space-y-0">
           <div class="menu-item"><span class="menu-name" data-ro="Papanași" data-hu="Turofánk">Papanași</span><span class="menu-dots"></span><span class="menu-meta">200g</span><span class="menu-price">29 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: ouă, gluten, lapte, lactoză" data-hu="Allergének: tojás, glutén, tej, laktóz">Alergeni: ouă, gluten, lapte, lactoză</div>
           <div class="menu-item"><span class="menu-name">Marlenka</span><span class="menu-dots"></span><span class="menu-meta">110g</span><span class="menu-price">21 lei</span></div>
+          <div class="menu-allergen" data-ro="Alergeni: lapte, zahăr, sirop de glucoză, pudra de cacao degresat" data-hu="Allergének: tej, cukor, glükózszirup, zsírtalanított kakaópor">Alergeni: lapte, zahăr, sirop de glucoză, pudra de cacao degresat</div>
         </div>
       </section>
 
@@ -369,11 +408,24 @@ const categories = [
       text-align: right;
     }
     .menu-desc {
-      padding: 0 0 0.75rem 0;
+      padding: 0 0 0.5rem 0;
       color: rgba(245, 242, 235, 0.5);
       font-size: 0.85rem;
       font-style: italic;
+    }
+    .menu-allergen {
+      padding: 0 0 0.75rem 0;
+      color: #c47a6a;
+      font-size: 0.75rem;
+      font-style: italic;
       border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+    }
+    .menu-desc + .menu-allergen {
+      padding-top: 0;
+    }
+    .menu-item + .menu-allergen {
+      margin-top: -0.5rem;
+      padding-top: 0;
     }
     .menu-divider {
       height: 1px;

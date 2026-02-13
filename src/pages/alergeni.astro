@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Alergeni | Faló Restaurant">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="text-gold font-serif text-xl tracking-wider">FALÓ</a>
+      <div class="flex items-center gap-1 text-sm">
+        <button data-lang-btn="ro" onclick="setLang('ro')" class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium">RO</button>
+        <button data-lang-btn="hu" onclick="setLang('hu')" class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10">HU</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <!-- Title -->
+      <h1 class="font-serif text-4xl md:text-5xl text-center text-gold mb-2 mt-4">
+        <span data-ro="Alergeni" data-hu="Allergének">Alergeni</span>
+      </h1>
+      <div class="ornament max-w-xs mx-auto mb-10">
+        <span class="text-gold text-xl">&#10022;</span>
+      </div>
+
+      <!-- Intro -->
+      <p class="text-cream/70 text-sm leading-relaxed mb-10" data-ro="Conform Regulamentului UE nr. 1169/2011, Anexa II, sunt enumerate substanțele care pot prezenta un risc pentru persoanele care suferă de alergii alimentare sau intoleranțe. În toate cazurile, consumatorul trebuie avertizat cu privire la prezența acestor alergeni. Acest regulament este obligatoriu din 13 decembrie 2014." data-hu="A 1169/2011 EU rendelet II. mellékletében találhatóak azok az anyagok felsorolva, amelyek veszélyt jelenthetnek az ételallergiában vagy intoleranciában szenvedőknek. Minden esetben figyelmeztesse a fogyasztót ezen allergének jelenlétére. Ez a rendelet 2014. december 13-tól kötelező.">Conform Regulamentului UE nr. 1169/2011, Anexa II, sunt enumerate substanțele care pot prezenta un risc pentru persoanele care suferă de alergii alimentare sau intoleranțe. În toate cazurile, consumatorul trebuie avertizat cu privire la prezența acestor alergeni. Acest regulament este obligatoriu din 13 decembrie 2014.</p>
+
+      <!-- Allergen List -->
+      <ol class="allergen-list space-y-6">
+        <li>
+          <h3 class="allergen-title" data-ro="Cereale care conțin gluten" data-hu="Glutént tartalmazó gabonafélék">Cereale care conțin gluten</h3>
+          <p class="allergen-desc" data-ro="Grâu (inclusiv spelta și kamut), secară, orz, ovăz și soiurile hibridizate ale acestora, precum și produsele fabricate din acestea." data-hu="Búza (például tönkölybúza vagy khorasan búza), rozs, árpa, zab illetve hibridizált fajtáik, valamint a belőlük készült termékek.">Grâu (inclusiv spelta și kamut), secară, orz, ovăz și soiurile hibridizate ale acestora, precum și produsele fabricate din acestea.</p>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Crustacee și produse derivate" data-hu="Rákfélék és a belőlük készült termékek">Crustacee și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Ouă și produse derivate" data-hu="Tojás és a belőle készült termékek">Ouă și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Pește și produse derivate" data-hu="Hal és a belőle készült termékek">Pește și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Arahide și produse derivate" data-hu="Földimogyoró és a belőle készült termékek">Arahide și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Soia și produse derivate" data-hu="Szójabab és a belőle készült termékek">Soia și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Lapte și produse derivate (inclusiv lactoză)" data-hu="Tej és az abból készült termékek (beleértve a laktózt)">Lapte și produse derivate (inclusiv lactoză)</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Fructe cu coajă lemnoasă" data-hu="Diófélék">Fructe cu coajă lemnoasă</h3>
+          <p class="allergen-desc" data-ro="Migdale, alune, nuci, caju, nuci pecan, nuci de Brazilia, fistic, nuci de macadamia și produse derivate din acestea." data-hu="Mandula, mogyoró, dió, kesudió, pekándió, brazildió, pisztácia, makadámia- vagy queenslandi dió és a belőlük készült termékek.">Migdale, alune, nuci, caju, nuci pecan, nuci de Brazilia, fistic, nuci de macadamia și produse derivate din acestea.</p>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Țelină și produse derivate" data-hu="Zeller és a belőle készült termékek">Țelină și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Muștar și produse derivate" data-hu="Mustár és a belőle készült termékek">Muștar și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Semințe de susan și produse derivate" data-hu="Szezámmag és a belőle készült termékek">Semințe de susan și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Dioxid de sulf și sulfiți" data-hu="Kén-dioxid és szulfitok">Dioxid de sulf și sulfiți</h3>
+          <p class="allergen-desc" data-ro="În concentrații totale de peste 10 mg/kg sau 10 mg/litru, exprimate în SO₂." data-hu="10 mg/kg, illetve 10 mg/liter összkoncentrációt meghaladó mennyiségben, SO₂-ben kifejezve.">În concentrații totale de peste 10 mg/kg sau 10 mg/litru, exprimate în SO₂.</p>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Lupin și produse derivate" data-hu="Csillagfürt és a belőle készült termékek">Lupin și produse derivate</h3>
+        </li>
+        <li>
+          <h3 class="allergen-title" data-ro="Moluște și produse derivate" data-hu="Puhatestűek és a belőlük készült termékek">Moluște și produse derivate</h3>
+        </li>
+      </ol>
+
+      <!-- Footer note -->
+      <div class="mt-12 pt-8 border-t border-gold/20">
+        <p class="text-cream/50 text-sm text-center" data-ro="În caz de alergie, vă rugăm să consultați personalul nostru. Vă mulțumim pentru înțelegere." data-hu="Allergia esetén forduljon munkatársunkhoz. Megértésüket köszönjük.">În caz de alergie, vă rugăm să consultați personalul nostru. Vă mulțumim pentru înțelegere.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-gold/20 text-center">
+    <div class="flex justify-center gap-6">
+      <a href="/menu" class="text-gold/60 hover:text-gold transition-colors text-sm">
+        &larr; <span data-ro="Meniu" data-hu="Étlap">Meniu</span>
+      </a>
+      <a href="/" class="text-gold/60 hover:text-gold transition-colors text-sm">
+        <span data-ro="Pagina principală" data-hu="Főoldal">Pagina principală</span>
+      </a>
+    </div>
+  </footer>
+
+  <style>
+    .allergen-list {
+      counter-reset: allergen;
+    }
+    .allergen-list li {
+      counter-increment: allergen;
+      padding-left: 2.5rem;
+      position: relative;
+    }
+    .allergen-list li::before {
+      content: counter(allergen) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .allergen-title {
+      color: var(--color-cream);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .allergen-desc {
+      color: rgba(245, 242, 235, 0.5);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+  </style>
+</Layout>
