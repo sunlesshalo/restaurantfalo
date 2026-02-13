@@ -44,8 +44,8 @@ const categories = [
         <span class="text-gold text-xl">&#10022;</span>
       </div>
 
-      <!-- Category Tabs -->
-      <div class="menu-tabs flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
+      <!-- Category Tabs (desktop only) -->
+      <div class="menu-tabs hidden md:flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs">
         {categories.map((cat) => (
           <button
             data-tab={cat.id}
@@ -57,8 +57,12 @@ const categories = [
       </div>
 
       <!-- SPECIALS -->
+      <div class="accordion-header flex md:hidden" data-accordion="specials">
+        <span data-ro="Specialități" data-hu="Ajánlat">Specialități</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="specials" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Specialitatea casei & Platouri" data-hu="A ház ajánlata & Tálak">Specialitatea casei & Platouri</span>
         </h2>
         <div class="space-y-0">
@@ -79,8 +83,12 @@ const categories = [
       </section>
 
       <!-- BREAKFAST -->
+      <div class="accordion-header flex md:hidden" data-accordion="breakfast">
+        <span data-ro="Mic dejun" data-hu="Reggeli">Mic dejun</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="breakfast" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-2">
+        <h2 class="font-serif text-2xl text-gold text-center mb-2 hidden md:block">
           <span data-ro="Mic dejun" data-hu="Reggeli">Mic dejun</span>
         </h2>
         <p class="text-center text-cream/50 text-sm mb-8" data-ro="Omletă / Omlett" data-hu="Omletták">Omletă / Omlett</p>
@@ -99,8 +107,12 @@ const categories = [
       </section>
 
       <!-- SOUPS -->
+      <div class="accordion-header flex md:hidden" data-accordion="soups">
+        <span data-ro="Supe" data-hu="Levesek">Supe</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="soups" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Supe" data-hu="Levesek">Supe</span>
         </h2>
         <div class="space-y-0">
@@ -120,8 +132,12 @@ const categories = [
       </section>
 
       <!-- PORK -->
+      <div class="accordion-header flex md:hidden" data-accordion="pork">
+        <span data-ro="Porc" data-hu="Sertés">Porc</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="pork" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Porc" data-hu="Sertés">Porc</span>
         </h2>
         <div class="space-y-0">
@@ -133,8 +149,12 @@ const categories = [
       </section>
 
       <!-- CHICKEN -->
+      <div class="accordion-header flex md:hidden" data-accordion="chicken">
+        <span data-ro="Pui" data-hu="Csirke">Pui</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="chicken" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Pui" data-hu="Csirke">Pui</span>
         </h2>
         <div class="space-y-0">
@@ -146,8 +166,12 @@ const categories = [
       </section>
 
       <!-- BEEF & FISH -->
+      <div class="accordion-header flex md:hidden" data-accordion="beef-fish">
+        <span data-ro="Vită & Pește" data-hu="Marha & Hal">Vită & Pește</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="beef-fish" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Vită & Pește" data-hu="Marha & Hal">Vită & Pește</span>
         </h2>
         <div class="space-y-0">
@@ -159,8 +183,12 @@ const categories = [
       </section>
 
       <!-- VEGETARIAN -->
+      <div class="accordion-header flex md:hidden" data-accordion="vegetarian">
+        <span data-ro="Vegetariene" data-hu="Vegetáriánus">Vegetariene</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="vegetarian" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Vegetariene" data-hu="Vegetáriánus ételek">Vegetariene</span>
         </h2>
         <div class="space-y-0">
@@ -175,8 +203,12 @@ const categories = [
       </section>
 
       <!-- SALADS -->
+      <div class="accordion-header flex md:hidden" data-accordion="salads">
+        <span data-ro="Salate" data-hu="Saláták">Salate</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="salads" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Salate" data-hu="Saláták">Salate</span>
         </h2>
         <div class="space-y-0">
@@ -199,8 +231,12 @@ const categories = [
       </section>
 
       <!-- SIDES -->
+      <div class="accordion-header flex md:hidden" data-accordion="sides">
+        <span data-ro="Garnituri" data-hu="Köretek">Garnituri</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="sides" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Garnituri" data-hu="Köretek">Garnituri</span>
         </h2>
         <div class="space-y-0">
@@ -218,8 +254,12 @@ const categories = [
       </section>
 
       <!-- SAUCES -->
+      <div class="accordion-header flex md:hidden" data-accordion="sauces">
+        <span data-ro="Sosuri" data-hu="Mártások">Sosuri</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="sauces" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Sosuri & Pâine" data-hu="Mártások & Kenyér">Sosuri & Pâine</span>
         </h2>
         <div class="space-y-0">
@@ -240,8 +280,12 @@ const categories = [
       </section>
 
       <!-- DESSERT -->
+      <div class="accordion-header flex md:hidden" data-accordion="dessert">
+        <span data-ro="Desert" data-hu="Desszert">Desert</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="dessert" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Desert" data-hu="Desszert">Desert</span>
         </h2>
         <div class="space-y-0">
@@ -253,8 +297,12 @@ const categories = [
       </section>
 
       <!-- DRINKS -->
+      <div class="accordion-header flex md:hidden" data-accordion="drinks">
+        <span data-ro="Băuturi" data-hu="Italok">Băuturi</span>
+        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
       <section data-section="drinks" class="menu-section hidden">
-        <h2 class="font-serif text-2xl text-gold text-center mb-8">
+        <h2 class="font-serif text-2xl text-gold text-center mb-8 hidden md:block">
           <span data-ro="Băuturi" data-hu="Italok">Băuturi</span>
         </h2>
         <div class="space-y-0">
@@ -429,16 +477,40 @@ const categories = [
       background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
       margin: 1.5rem 0;
     }
-    /* Tabs */
+    /* Desktop tabs */
     .menu-tab {
       padding: 0.5rem 1rem;
       font-size: 0.875rem;
     }
-    @media (max-width: 640px) {
-      .menu-tab {
-        padding: 0.35rem 0.65rem;
-        font-size: 0.75rem;
-      }
+    /* Mobile accordion headers */
+    .accordion-header {
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+      cursor: pointer;
+      font-family: var(--font-family-serif);
+      font-size: 1.15rem;
+      color: var(--color-gold);
+      font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .accordion-header:active {
+      opacity: 0.7;
+    }
+    .accordion-header.active {
+      border-bottom-color: var(--color-gold);
+    }
+    .accordion-chevron {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .accordion-header.active .accordion-chevron {
+      transform: rotate(180deg);
+    }
+    @media (max-width: 767px) {
       .menu-name {
         font-size: 0.85rem;
         white-space: normal;
@@ -460,40 +532,58 @@ const categories = [
     document.addEventListener('DOMContentLoaded', () => {
       const tabs = document.querySelectorAll('.menu-tab');
       const sections = document.querySelectorAll('.menu-section');
-      let activeTab: string | null = null;
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      let activeSection: string | null = null;
 
+      function openSection(target: string) {
+        sections.forEach(s => s.classList.add('hidden'));
+        sections.forEach(s => {
+          if ((s as HTMLElement).dataset.section === target) {
+            s.classList.remove('hidden');
+          }
+        });
+      }
+
+      function closeAll() {
+        sections.forEach(s => s.classList.add('hidden'));
+        tabs.forEach(t => {
+          t.classList.remove('bg-gold', 'text-charcoal', 'border-gold');
+          t.classList.add('text-gold/80', 'border-gold/30');
+        });
+        accordionHeaders.forEach(h => h.classList.remove('active'));
+        activeSection = null;
+      }
+
+      // Desktop tabs
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
           const target = (tab as HTMLElement).dataset.tab!;
-          const isClosing = activeTab === target;
-
-          // Reset all tabs
-          tabs.forEach(t => {
-            t.classList.remove('bg-gold', 'text-charcoal', 'border-gold');
-            t.classList.add('text-gold/80', 'border-gold/30');
-          });
-
-          // Hide all sections
-          sections.forEach(s => s.classList.add('hidden'));
-
-          if (isClosing) {
-            // Toggle off — everything stays closed
-            activeTab = null;
+          if (activeSection === target) {
+            closeAll();
           } else {
-            // Open the clicked category
-            activeTab = target;
+            closeAll();
+            activeSection = target;
             tab.classList.add('bg-gold', 'text-charcoal', 'border-gold');
             tab.classList.remove('text-gold/80', 'border-gold/30');
-
-            sections.forEach(s => {
-              if ((s as HTMLElement).dataset.section === target) {
-                s.classList.remove('hidden');
-              }
-            });
+            openSection(target);
           }
-
-          // Scroll to tabs
           document.getElementById('menu-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Mobile accordion
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const target = (header as HTMLElement).dataset.accordion!;
+          if (activeSection === target) {
+            closeAll();
+          } else {
+            closeAll();
+            activeSection = target;
+            header.classList.add('active');
+            openSection(target);
+            header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       });
     });
