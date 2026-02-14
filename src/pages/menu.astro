@@ -23,9 +23,6 @@ const categories = [
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="text-gold font-serif text-xl tracking-wider">FALÓ</a>
       <div class="flex items-center gap-4">
-        <a href="/alergeni" class="text-cream/60 hover:text-gold text-sm transition-colors">
-          <span data-ro="Alergeni" data-hu="Allergének">Alergeni</span>
-        </a>
         <div class="flex items-center gap-1 text-sm">
           <button data-lang-btn="ro" onclick="setLang('ro')" class="px-3 py-1 rounded transition-colors bg-gold text-charcoal font-medium">RO</button>
           <button data-lang-btn="hu" onclick="setLang('hu')" class="px-3 py-1 rounded transition-colors text-gold font-medium hover:bg-gold/10">HU</button>
@@ -414,8 +411,11 @@ const categories = [
   </main>
 
   <!-- Footer -->
-  <footer class="py-8 px-4 border-t border-gold/20 text-center">
-    <a href="/" class="text-gold/60 hover:text-gold transition-colors text-sm">
+  <footer class="py-8 px-4 border-t border-gold/20 text-center space-y-3">
+    <a href="/alergeni" class="block text-cream/60 hover:text-gold text-sm transition-colors">
+      <span data-ro="Alergeni" data-hu="Allergének">Alergeni</span>
+    </a>
+    <a href="/" class="block text-gold/60 hover:text-gold transition-colors text-sm">
       &larr; <span data-ro="Înapoi la pagina principală" data-hu="Vissza a főoldalra">Înapoi la pagina principală</span>
     </a>
   </footer>
